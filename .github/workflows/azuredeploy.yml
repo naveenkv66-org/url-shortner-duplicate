@@ -44,3 +44,5 @@ jobs:
             az deployment group create \
               --resource-group ${{ vars.RESOURCE_GROUP_NAME }} \
               --template-file ./infrastructure/main.bicep
+
+              
