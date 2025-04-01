@@ -1,0 +1,47 @@
+name: Azure Deploy
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - infrastructure/** # Adjust the path to your source files
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read # for actions/checkout
+  id-token: write # for azure/login with access token using token exchange
+
+jobs:
+ deploy-dev:
+    runs-on: ubuntu-latest
+    environment: devlopment
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Azure CLI
+        uses: azure/setup-cli@v2
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          
+      - name: resource Group
+        uses: azure/CLI@v2
+        with:
+          inlineScript: |
+            az group create --name ${{ vars.RESOURCE_GROUP_NAME }} --location ${{ vars.RESOURCE_GROUP_LOCATION }}
+            echo "Resource Group  ${{ vars.RESOURCE_GROUP_NAME }} created"
+            
+      - name: Deploy
+        uses: azure/CLI@v2
+        with:
+            resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
+            template: ./infrastrcture/main.bicep
+         
