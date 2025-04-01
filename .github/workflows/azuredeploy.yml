@@ -43,4 +43,4 @@ jobs:
             echo "🚀 Deploying Bicep template..."
             az deployment group create \
               --resource-group ${{ vars.RESOURCE_GROUP_NAME }} \
-              --template-file ./Infrastructure/main.bicep
+              --template-file ./infrastructure/main.bicep
