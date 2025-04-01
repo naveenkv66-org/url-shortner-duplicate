@@ -17,7 +17,7 @@ permissions:
 jobs:
  deploy-dev:
     runs-on: ubuntu-latest
-    environment: development
+    environment: Development
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
