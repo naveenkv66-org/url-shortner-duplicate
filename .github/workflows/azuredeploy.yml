@@ -42,5 +42,5 @@ jobs:
            inlineScript: |
             echo "🚀 Deploying Bicep template..."
             az deployment group create \
-              --resource-group ${{ vars.AZURE_RESOURCE_GROUP }} \
+              --resource-group ${{ vars.RESOURCE_GROUP_NAME }} \
               --template-file ./Infrastructure/main.bicep
