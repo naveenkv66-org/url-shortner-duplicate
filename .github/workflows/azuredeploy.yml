@@ -17,11 +17,11 @@ permissions:
 jobs:
  deploy-dev:
     runs-on: ubuntu-latest
-    environment: devlopment
+    environment: development
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
+
       - name: Login to Azure
         uses: azure/login@v2.1.1
         with:
