@@ -38,13 +38,11 @@ jobs:
             echo "Resource Group  ${{ vars.RESOURCE_GROUP_NAME }} created"
             
       - name: Deploy
-        uses: azure/CLI@v2
+        uses: azure/arm-deploy@v2.0.0
         with:
-           inlineScript: |
-            echo "🚀 Deploying Bicep template..."
-            az deployment group create \
-              --resource-group ${{ vars.RESOURCE_GROUP_NAME }} \
-              --template-file ./infrastructure/main.bicep
+          resource_group_name: ${{ vars.RESOURCE_GROUP_NAME }}
+          template_location: './infrastructure/main.bicep'
+            
 
  deploy-staging:
     runs-on: ubuntu-latest
@@ -69,13 +67,11 @@ jobs:
             echo "Resource Group  ${{ vars.RESOURCE_GROUP_NAME }} created"
             
       - name: Deploy
-        uses: azure/CLI@v2
+        uses: azure/arm-deploy@v2.0.0
         with:
-           inlineScript: |
-            echo "🚀 Deploying Bicep template..."
-            az deployment group create \
-              --resource-group ${{ vars.RESOURCE_GROUP_NAME }} \
-              --template-file ./infrastructure/main.bicep
+          resource_group_name: ${{ vars.RESOURCE_GROUP_NAME }}
+          template_location: './infrastructure/main.bicep'
+            
   
  deploy-prod:
     runs-on: ubuntu-latest
@@ -101,10 +97,9 @@ jobs:
             echo "Resource Group  ${{ vars.RESOURCE_GROUP_NAME }} created"
             
       - name: Deploy
-        uses: azure/CLI@v2
+        uses: azure/arm-deploy@v2.0.0
         with:
-          inlineScript: |
-            echo "🚀 Deploying Bicep template..."
-            az deployment group create \
-              --resource-group ${{ vars.RESOURCE_GROUP_NAME }} \
-              --template-file ./infrastructure/main.bicep
+          resource_group_name: ${{ vars.RESOURCE_GROUP_NAME }}
+          template_location: './infrastructure/main.bicep'
+        
+       
