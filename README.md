@@ -33,13 +33,13 @@ az deployment group  create --resource-group urlshortner --template-file infrast
 ### To Create Service user for Github Actions in Azure
 
 ```bash
-az ad sp create-for-rbac --name "Github-Actions-SP" --role Contributor --scopes /subscriptions/67a63877-9ecd-4d2a-b2c2-7cf4047395bb  --sdk-auth
+az ad sp create-for-rbac --name "Github-Actions-SP-duplicate" --role Contributor --scopes /subscriptions/67a63877-9ecd-4d2a-b2c2-7cf4047395bb  --sdk-auth
 
 
 ```
 ### Apply Custom Contribute Role 
 
 ```bash
-az ad sp create-for-rbac --name "GitHub-Actions-SP" --role infra_deploy_duplicate  --scopes /subscriptions/67a63877-9ecd-4d2a-b2c2-7cf4047395bb --sdk-auth
+az ad sp create-for-rbac --name "GitHub-Actions-SP-duplicate" --role infra_deploy_duplicate  --scopes /subscriptions/67a63877-9ecd-4d2a-b2c2-7cf4047395bb --sdk-auth
 
 ```
