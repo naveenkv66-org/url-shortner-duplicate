@@ -4,6 +4,14 @@ var  uniqueId = uniqueString(resourceGroup().id)
 var appServicePlanName = 'plan-api-${uniqueId}'
 var appServiceName = 'api-${uniqueId}'
 
+module keyVault 'modules/secrets/keyvault.bicep' = {
+  name: 'keyVaultDeployment'
+  params: {
+    location: location
+    keyVaultName: 'kv-${uniqueId}'
+  }
+}
+
 module apiService 'modules/compute/appservice.bicep' = {
   name: 'appServicePlanDeployment'
   params: {
@@ -13,4 +21,6 @@ module apiService 'modules/compute/appservice.bicep' = {
     
   }
 }
+
+
 
