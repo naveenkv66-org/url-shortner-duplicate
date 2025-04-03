@@ -2,7 +2,7 @@
 param appServicePlanName string
 param location string
 param appName string
-
+param keyVaultName string
 resource appServicePlan 'Microsoft.Web/serverfarms@2024-04-01' = {
   name: appServicePlanName
   location: location
@@ -34,7 +34,15 @@ resource appService 'Microsoft.Web/sites@2024-04-01' = {
       httpsOnly: true
       siteConfig: {
         linuxFxVersion: 'DOTNETCORE|8.0'
+        appSettings: [
+          {
+            name: 'KeyVaultName'
+            value: '${keyVaultName}'
+          }
+         
+        ]
       }
+
     }
     identity: {
       type: 'SystemAssigned'
