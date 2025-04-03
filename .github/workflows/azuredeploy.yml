@@ -40,8 +40,8 @@ jobs:
       - name: Deploy
         uses: azure/arm-deploy@v2.0.0
         with:
-          resource_group_name: ${{ vars.RESOURCE_GROUP_NAME }}
-          template_location: './infrastructure/main.bicep'
+          resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
+          template: './infrastructure/main.bicep'
             
 
  deploy-staging:
@@ -69,8 +69,9 @@ jobs:
       - name: Deploy
         uses: azure/arm-deploy@v2.0.0
         with:
-          resource_group_name: ${{ vars.RESOURCE_GROUP_NAME }}
-          template_location: './infrastructure/main.bicep'
+          resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
+          template: './infrastructure/main.bicep'
+
             
   
  deploy-prod:
@@ -99,7 +100,7 @@ jobs:
       - name: Deploy
         uses: azure/arm-deploy@v2.0.0
         with:
-          resource_group_name: ${{ vars.RESOURCE_GROUP_NAME }}
-          template_location: './infrastructure/main.bicep'
+          resourceGroupName: ${{ vars.RESOURCE_GROUP_NAME }}
+          template: './infrastructure/main.bicep'
         
        
