@@ -54,7 +54,7 @@ app.MapGet("/sayhello", () =>
 app.MapGet("/helloDeivya", () =>
 {
 
-    return "Hello Divya";
+    return "Hello zaina";
 })
 .WithName("helloDeivya");
 
