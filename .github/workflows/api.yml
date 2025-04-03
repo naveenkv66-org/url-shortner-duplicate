@@ -27,7 +27,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
-      run: dotnet publish ./Api/UrlShortner.Api.csproj --configuration Release --no-build --output ./output
+      run: dotnet publish ./API/UrlShortner.Api.csproj --configuration Release --no-build --output ./output
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
