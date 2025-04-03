@@ -36,6 +36,13 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
+app.MapGet("/family", () =>
+{
+    var family = new[] { "Vasantha","naveen", "divya", "zaina", "lokesh" };
+    return family;
+})
+.WithName("GetFamily");
+
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
