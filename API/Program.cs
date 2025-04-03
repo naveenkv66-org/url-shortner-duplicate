@@ -43,6 +43,14 @@ app.MapGet("/family", () =>
 })
 .WithName("GetFamily");
 
+
+app.MapGet("/sayhello", () =>
+{
+   
+    return "Hello Wolrd";
+})
+.WithName("GetFamily");
+
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
