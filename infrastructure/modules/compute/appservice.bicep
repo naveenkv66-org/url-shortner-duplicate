@@ -37,7 +37,7 @@ resource appService 'Microsoft.Web/sites@2024-04-01' = {
         appSettings: [
           {
             name: 'KeyVaultName'
-            value: '${keyVaultName}'
+            value: keyVaultName
           }
          
         ]
