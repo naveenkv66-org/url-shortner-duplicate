@@ -49,7 +49,7 @@ app.MapGet("/sayhello", () =>
    
     return "Hello Wolrd";
 })
-.WithName("GetFamily");
+.WithName("sayhello");
 
 app.Run();
 
